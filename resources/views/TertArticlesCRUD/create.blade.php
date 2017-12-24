@@ -20,8 +20,7 @@
             </ul>
         </div>
     @endif
-    {{--{!! Form::open(array('route' => 'TertArticlesCRUD.store','method'=>'POST')) !!}--}}
-    <form role="form" class="" method="post" action="{{route('TertArticlesCRUD.store')}}">
+    <form role="form" enctype="multipart/form-data " class="" method="post" action="{{route('TertArticlesCRUD.store')}}">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
         @include('TertArticlesCRUD.form',['article' => NULL,'action'=>'create'])
@@ -30,5 +29,28 @@
         </div>
 
     </form>
-    {{--{!! Form::close() !!}--}}
+@endsection
+
+@section('script')
+    <script>
+        $(document).ready(function () {
+            $("#img_local_url").change(function () {
+                if (this.files && this.files[0]) {
+
+                    var tmppath = URL.createObjectURL(event.target.files[0]);
+                    console.log(event.target.files[0]);
+                    var reader = new FileReader();
+                    reader.onload = imageIsLoaded;
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+        });
+
+        function imageIsLoaded(e) {
+            $('#imagePreview').attr('src', e.target.result);
+            $('.imagePreview').val(e.target.result);
+            $('#imagePreview').hide('fast');
+            $('#imagePreview').show('slow');
+        }
+    </script>
 @endsection

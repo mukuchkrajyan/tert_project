@@ -30,7 +30,24 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Image:</strong>
-                <img src="{{$article->img_url}}" />
+                <img src="{{url('images/tert.am/'. $article->img_local_url) }}" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Date:</strong>
+                {{$article->date}}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Url:</strong>
+                {{$article->img_url}}
             </div>
         </div>
     </div>

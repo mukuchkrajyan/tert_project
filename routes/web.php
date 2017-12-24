@@ -21,4 +21,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('TertArticlesCRUD','TertArticlesCRUDController');
 
 Route::post('/TertArticlesCRUD/get', 'TertArticlesCRUDController@get')->name('getarticles');
+Route::post('/TertArticlesCRUD/destroyAll', 'TertArticlesCRUDController@destroyAll')->name('destroyAll');
 
